@@ -3,159 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>रूपन्देही-२: अब गफ होइन, नतिजा रोजौं | Chunnu Poudel</title>
+    <title>रुपन्देही-२: अब गफ होइन, नतिजा रोजौं | चुन्न पौडेल</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Mukta', sans-serif; scroll-behavior: smooth; }
-        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
-        .hero-bg { background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)), url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Butwal_City_View.jpg'); background-size: cover; background-position: center; }
-        .candidate-img { width: 140px; height: 140px; object-fit: cover; border-radius: 50%; border: 4px solid white; transition: 0.4s; }
-        .vs-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; }
+        .hero-bg { background: linear-gradient(rgba(0, 20, 45, 0.9), rgba(0, 20, 45, 0.9)), url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Butwal_City_View.jpg'); background-size: cover; background-position: center; }
+        .candidate-img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 5px solid white; transition: 0.5s; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .service-badge { background: linear-gradient(135deg, #fbbf24, #d97706); }
+        
+        @keyframes stamp-action {
+            0% { opacity: 0; transform: scale(4) rotate(35deg); filter: blur(4px); }
+            20% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
+            85% { opacity: 1; transform: scale(1) rotate(0deg); }
+            100% { opacity: 0; transform: scale(1.1) rotate(0deg); }
+        }
+        .animate-stamp { animation: stamp-action 2.2s ease-out infinite; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900" x-data="{ mobileMenu: false }">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="text-2xl font-black text-blue-800">रूपन्देही-२ सम्बाद</div>
-            
-            <div class="hidden lg:flex gap-8 font-bold text-slate-600">
-                <a href="#issues" class="hover:text-blue-700 transition">स्थानीय मुद्दा</a>
-                <a href="#comparison" class="hover:text-blue-700 transition">तुलना</a>
-                <a href="#employment" class="hover:text-blue-700 transition">रोजगारी</a>
+            <div class="text-3xl font-black text-blue-900 tracking-tighter">रुपन्देही-२ सम्बाद</div>
+            <div class="hidden lg:flex gap-10 font-bold text-slate-600">
+                <a href="#issues" class="hover:text-blue-700 transition">मुद्दाहरू</a>
+                <a href="#comparison" class="hover:text-blue-700 transition">उम्मेदवार तुलना</a>
+                <a href="#commitment" class="hover:text-blue-700 transition text-red-600">विशेष प्रतिबद्धता</a>
             </div>
-
-            <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-slate-800">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
+            <button class="hidden md:block bg-red-600 text-white px-8 py-3 rounded-full font-black shadow-lg hover:bg-red-700 transition transform hover:scale-105 active:scale-95">परिवर्तनका लागि भोट</button>
+            <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-blue-900">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
-
-            <button class="hidden md:block bg-red-600 text-white px-8 py-3 rounded-full font-black shadow-lg hover:bg-red-700 transition transform hover:scale-105">भोट हालौं</button>
-        </div>
-        
-        <div x-show="mobileMenu" @click.away="mobileMenu = false" class="lg:hidden bg-white border-b px-6 py-4 space-y-4 font-bold">
-            <a href="#issues" class="block">स्थानीय मुद्दा</a>
-            <a href="#comparison" class="block">तुलना</a>
-            <a href="#employment" class="block">रोजगारी</a>
         </div>
     </nav>
 
-    <section class="hero-bg h-[85vh] flex items-center justify-center text-center px-4">
-        <div class="max-w-4xl">
-            <span class="bg-yellow-400 text-blue-900 px-5 py-1.5 rounded-full text-sm font-black tracking-widest uppercase mb-6 inline-block shadow-lg">मिशन २०८४ - अब पालो जनताको</span>
-            <h1 class="text-5xl md:text-8xl font-black text-white mb-8 leading-tight">
-                ३१ वर्षको <span class="text-yellow-400 underline">अन्धकार</span> <br>कि उज्ज्वल भविष्य?
+    <section class="hero-bg min-h-[80vh] flex items-center justify-center text-center px-4 py-20">
+        <div class="max-w-5xl">
+            <span class="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-black tracking-widest uppercase mb-6 inline-block">मिशन २०८४ / २०२६</span>
+            <h1 class="text-5xl md:text-8xl font-black text-white mb-8 leading-[1.1]">
+                ३१ वर्षको अन्धकार कि <br><span class="text-yellow-400">निस्वार्थ सेवा</span>?
             </h1>
-            <p class="text-xl md:text-2xl text-slate-100 mb-12 font-medium">
-                तिनाउको तटबन्धमा आश्वासनको खेती गर्ने कि, ५०००+ युवालाई रोजगारी दिने 'कर्मयोगी' रोज्ने?
+            <p class="text-xl md:text-2xl text-slate-200 mb-12 font-medium max-w-3xl mx-auto">
+                वर्षौंदेखि झुक्काइएका सुकुम्बासीलाई लालपुर्जा र युवालाई स्वदेशमै रोजगारी दिने अठोटका साथ — <b>चुन्न पौडेल</b>।
             </p>
             <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a href="#comparison" class="bg-white text-blue-900 px-12 py-5 rounded-2xl font-black text-xl shadow-2xl hover:bg-slate-100 transition">तथ्य जाँच गर्नुहोस्</a>
-                <a href="#issues" class="bg-blue-600 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-blue-700 transition border-2 border-blue-400/30">लालपुर्जाको ग्यारेन्टी</a>
+                <a href="#commitment" class="bg-yellow-400 text-blue-900 px-12 py-5 rounded-2xl font-black text-xl shadow-2xl hover:bg-yellow-500 transition transform hover:-translate-y-1 italic">सुविधा नलिने घोषणा हेर्नुहोस्</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="commitment" class="py-20 bg-white border-y border-slate-100">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="service-badge p-1 rounded-[2.5rem] shadow-2xl">
+                <div class="bg-white rounded-[2.3rem] p-10 md:p-16 text-center">
+                    <h2 class="text-3xl md:text-5xl font-black text-blue-900 mb-6 leading-tight">
+                        "म सांसद हुँदा राज्यको <span class="text-red-600 underline">एक पैसा</span> पनि तलब-सुविधा लिने छैन।"
+                    </h2>
+                    <div class="h-1 w-24 bg-yellow-500 mx-auto mb-8"></div>
+                    <p class="text-xl md:text-2xl text-slate-600 font-bold leading-relaxed mb-10">
+                        सफल उद्योगी चुन्न पौडेल राजनीतिमा पैसा कमाउन होइन, कमाइको हिस्सा समाजसेवामा खर्चिन आउनुभएको हो। सांसद पदको सम्पूर्ण तलब र भत्ता <b>रुपन्देहीका गरिब र जेहेन्दार विद्यार्थीको शिक्षामा</b> खर्च गरिनेछ।
+                    </p>
+                    <div class="inline-block border-2 border-blue-900 px-8 py-4 rounded-xl font-black text-blue-900 text-xl italic bg-blue-50">
+                        गफ होइन, प्रमाणित निस्वार्थ समाजसेवा!
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="comparison" class="py-24 max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-6xl font-black mb-6">मुख्य उम्मेदवारहरू: कसको हैसियत के?</h2>
-            <div class="h-2 w-32 bg-red-600 mx-auto rounded-full"></div>
+            <h2 class="text-4xl md:text-6xl font-black mb-4">कसलाई रोज्ने? तथ्य हेर्नुहोस्</h2>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-            
-            <div class="bg-white border-2 border-slate-100 rounded-[2.5rem] p-10 grayscale hover:grayscale-0 transition-all duration-500 shadow-sm hover:shadow-xl group">
-                <img src="https://bishnuprasadpaudel.com/wp-content/uploads/2021/04/bishnu-poudel-new-1.jpg" class="candidate-img mx-auto mb-8 group-hover:border-red-500 shadow-lg" alt="Bishnu Poudel">
-                <h3 class="text-2xl font-black text-center mb-2">विष्णु पौडेल (एमाले)</h3>
-                <p class="text-red-600 font-bold text-center mb-8 italic">"३१ वर्षे सत्ताको अहंकार"</p>
-                <ul class="space-y-5 text-slate-600 font-medium">
-                    <li class="flex items-start gap-3 text-lg leading-relaxed">❌ <span>सुकुम्बासीलाई ३१ वर्षसम्म लालपुर्जाको नाममा झुक्याएको।</span></li>
-                    <li class="flex items-start gap-3 text-lg">❌ <span>बुटवलको राजधानी दाङ पुर्याउँदा मौन बसेको आरोप।</span></li>
-                    <li class="flex items-start gap-3 text-lg">❌ <span>तिनाउ कोरिडोरका बासिन्दालाई विस्थापनको त्रास मात्र दिएको।</span></li>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div class="bg-white border border-slate-200 rounded-[3rem] p-10 opacity-75 grayscale hover:grayscale-0 transition-all shadow-lg text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Bishnu_Prasad_Paudel.jpg" class="candidate-img mx-auto mb-6 border-red-500" alt="Bishnu Poudel">
+                <h3 class="text-2xl font-black mb-2">विष्णु पौडेल (एमाले)</h3>
+                <p class="text-red-600 font-bold mb-6 italic">३१ वर्ष सत्तामा, सधैं आश्वासन मात्र</p>
+                <ul class="text-left space-y-4 text-slate-600 font-medium">
+                    <li>❌ ३१ वर्षसम्म लालपुर्जाको नाममा भोट बैंक बनाए।</li>
+                    <li>❌ बुटवलको राजधानी दाङ पठाएर विकासको गला निमोठे।</li>
                 </ul>
             </div>
 
-            <div class="bg-blue-900 text-white rounded-[2.5rem] p-10 shadow-[0_30px_60px_-15px_rgba(30,64,175,0.5)] border-4 border-blue-400 relative transform lg:-translate-y-8">
-                <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-yellow-400 text-blue-900 px-6 py-2 rounded-full font-black text-sm uppercase shadow-xl">विकासको इन्जिन</div>
-                <img src="https://ekantipur.com/images/2026/01/20/chunna-poudel-1705753545.jpg" class="candidate-img mx-auto mb-8 border-yellow-400 shadow-2xl scale-110" alt="Chunna Prasad Poudel">
-                <h3 class="text-3xl font-black text-center mb-2">चुन्नु पौडेल (कांग्रेस)</h3>
-                <p class="text-yellow-400 font-bold text-center mb-8 uppercase tracking-widest italic">"गफ होइन, रोजगारी"</p>
-                <ul class="space-y-5 text-blue-50 font-medium">
-                    <li class="flex items-start gap-3 text-lg leading-relaxed font-bold italic">✅ <span>५,०००+ नेपाली युवालाई आफ्नै उद्योगमा रोजगारी दिएर विदेशिनबाट रोके।</span></li>
-                    <li class="flex items-start gap-3 text-lg">✅ <span>तिनाउ कोरिडोरका जनताको बास नउठ्ने लिखित ग्यारेन्टी।</span></li>
-                    <li class="flex items-start gap-3 text-lg">✅ <span>राजनीतिलाई व्यापार होइन, सामाजिक सेवामा समर्पित गर्ने अठोट।</span></li>
-                    <li class="flex items-start gap-3 text-lg font-bold text-yellow-300">✅ <span>सत्तामा नहुँदा पनि विकास गर्ने वास्तविक समाजसेवी।</span></li>
+            <div class="bg-blue-900 text-white rounded-[3rem] p-10 shadow-[0_40px_80px_-15px_rgba(30,64,175,0.6)] border-4 border-blue-400 relative transform lg:-translate-y-10 text-center">
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-yellow-400 text-blue-900 px-8 py-2 rounded-full font-black text-sm uppercase shadow-xl">भरोसाको केन्द्र</div>
+                <img src="https://ekantipur.com/images/2026/01/20/chunna-poudel-1705753545.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Nepalese_Election_Symbol_Tree.svg/1024px-Nepalese_Election_Symbol_Tree.svg.png'" class="candidate-img mx-auto mb-8 border-yellow-400 scale-110 shadow-2xl" alt="Chunna Prasad Poudel">
+                <h3 class="text-4xl font-black mb-2 tracking-tight">चुन्न पौडेल (कांग्रेस)</h3>
+                <p class="text-yellow-400 font-bold mb-8 italic text-lg uppercase">"५००० लाई रोजगारी दिने कर्मवीर"</p>
+                <ul class="text-left space-y-5 text-blue-50 font-bold text-lg">
+                    <li class="flex gap-3">✅ <span class="text-yellow-300">तलब, गाडी र कुनै सरकारी सुविधा नलिने घोषणा।</span></li>
+                    <li class="flex gap-3">✅ ५,०००+ युवालाई स्वदेशमै रोजगारी दिने आधार।</li>
+                    <li class="flex gap-3">✅ सुकुम्बासीलाई स्थायी लालपुर्जाको वास्तविक पहल।</li>
                 </ul>
             </div>
 
-            <div class="bg-white border-2 border-slate-100 rounded-[2.5rem] p-10 grayscale hover:grayscale-0 transition-all duration-500 shadow-sm hover:shadow-xl group">
-                <img src="https://via.placeholder.com/300/0000ff/ffffff?text=Sulav+Kharel" class="candidate-img mx-auto mb-8 group-hover:border-blue-500 shadow-lg" alt="Sulav Kharel">
-                <h3 class="text-2xl font-black text-center mb-2">सुलभ खरेल (रास्वपा)</h3>
-                <p class="text-blue-600 font-bold text-center mb-8 italic">"फेसबुक लाइभ र हल्ला मात्र"</p>
-                <ul class="space-y-5 text-slate-600 font-medium">
-                    <li class="flex items-start gap-3 text-lg leading-relaxed">❌ <span>रुपन्देहीको धरातल नबुझी सिधै चुनाव लड्न आएका।</span></li>
-                    <li class="flex items-start gap-3 text-lg">❌ <span>सर्वोच्च अदालत जलाउने जस्तो गैरजिम्मेवार धम्की दिने मानसिकता।</span></li>
-                    <li class="flex items-start gap-3 text-lg">❌ <span>जमिनमा काम भन्दा सामाजिक सञ्जालमा चर्चा खोज्ने प्रवृत्ती।</span></li>
+            <div class="bg-white border border-slate-200 rounded-[3rem] p-10 opacity-75 grayscale hover:grayscale-0 transition-all shadow-lg text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/RSP_Nepal_Logo.png/600px-RSP_Nepal_Logo.png" class="candidate-img mx-auto mb-6 border-blue-600 p-4" alt="Sulav Kharel">
+                <h3 class="text-2xl font-black mb-2">सुलभ खरेल (रास्वपा)</h3>
+                <p class="text-blue-600 font-bold mb-6 italic">अनुभवहीन र हल्लामा केन्द्रित</p>
+                <ul class="text-left space-y-4 text-slate-600 font-medium">
+                    <li>❌ धरातलीय ज्ञान बिनाको फेसबुक राजनीति।</li>
+                    <li>❌ अराजक अभिव्यक्ति र गैरजिम्मेवार धम्की।</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-blue-900 text-white text-center">
-        <h2 class="text-5xl font-black mb-10">भोट कसलाई? विवेकी हुनुहोस्!</h2>
-        <div class="max-w-3xl mx-auto mb-16 px-6">
-            <p class="text-2xl text-blue-100 leading-relaxed italic">
-                "३१ वर्षसम्म लालपुर्जाको आश देखाउनेलाई कि ५००० परिवारको चुल्हो बाल्ने व्यवसायीलाई?"
-            </p>
-        </div>
-        <div class="bg-red-600 text-white w-fit mx-auto px-12 md:px-24 py-8 rounded-[2rem] shadow-[0_0_50px_rgba(220,38,38,0.5)] animate-pulse font-black text-3xl md:text-5xl tracking-tighter cursor-pointer">
-            रूख चिन्हमा मतदान!
+    <section class="py-32 bg-slate-900 text-white text-center">
+        <h2 class="text-5xl md:text-7xl font-black mb-16 italic tracking-tighter">अब पालो "रूख" को!</h2>
+        <div class="relative w-fit mx-auto">
+            <div class="bg-red-600 text-white px-10 md:px-24 py-10 rounded-[3rem] shadow-[0_0_80px_rgba(220,38,38,0.7)] font-black text-3xl md:text-6xl flex flex-col md:flex-row items-center gap-12 border-4 border-red-500">
+                <div class="relative bg-white p-6 rounded-3xl shadow-inner border-4 border-slate-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Nepalese_Election_Symbol_Tree.svg/1024px-Nepalese_Election_Symbol_Tree.svg.png" class="w-24 md:w-36 h-auto" alt="Rukh">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Nepal_Election_Symbol_Swastika.png/240px-Nepal_Election_Symbol_Swastika.png" class="absolute inset-0 w-16 md:w-24 m-auto opacity-0 animate-stamp pointer-events-none" alt="Stamp">
+                </div>
+                <span>रूख चिन्हमा मतदान!</span>
+            </div>
         </div>
     </section>
-    <div class="relative w-fit mx-auto mt-10 group cursor-pointer">
-    <div class="bg-red-600 text-white px-12 md:px-24 py-10 rounded-[2rem] shadow-[0_0_50px_rgba(220,38,38,0.5)] font-black text-3xl md:text-5xl flex items-center gap-6">
-        
-        <div class="relative bg-white p-2 rounded-lg shadow-inner">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Election_Symbol_of_Nepali_Congress.png" 
-                 class="w-16 md:w-24 h-auto" alt="Rukh">
-            
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Swastika_stamp_Nepal.png/240px-Swastika_stamp_Nepal.png" 
-                 class="absolute inset-0 w-12 md:w-16 m-auto opacity-0 animate-stamp pointer-events-none" 
-                 style="filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));" alt="Stamp">
-        </div>
 
-        <span>रूख चिन्हमा मतदान!</span>
-    </div>
-</div>
-
-<style>
-    @keyframes stamp {
-        0% {
-            opacity: 0;
-            transform: scale(3) rotate(20deg);
-        }
-        50% {
-            opacity: 1;
-            transform: scale(1) rotate(0deg);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1) rotate(0deg);
-        }
-    }
-
-    .animate-stamp {
-        /* This makes the stamp happen every 2 seconds */
-        animation: stamp 1.5s ease-in infinite;
-    }
-</style>
-
-    <footer class="bg-slate-900 py-16 text-center text-white/50 border-t border-white/5">
-        <p class="font-bold text-lg text-white mb-2 tracking-widest">रूपन्देही-२ सचेत युवा अभियान</p>
-        <p>© २०२६ | विकासका लागि परिवर्तन</p>
+    <footer class="bg-slate-50 py-16 text-center border-t border-slate-200">
+        <p class="text-xl font-black text-blue-900 mb-2 uppercase tracking-widest">रुपन्देही-२ सचेत युवा अभियान</p>
+        <p class="text-slate-400 font-bold italic underline">"यो प्यारोडी वेबसाइट परिवर्तनका लागि सचेतना फैलाउन निर्माण गरिएको हो।"</p>
     </footer>
 
 </body>
