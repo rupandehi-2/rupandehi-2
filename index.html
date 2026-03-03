@@ -3,110 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>रूपन्देही-२: सही विकल्प चुन्न प्रसाद पौडेल</title>
+    <title>रूपन्देही-२: अब गफ होइन, नतिजा रोजौं | Chunnu Poudel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Mukta', sans-serif; scroll-behavior: smooth; }
-        .swastika-stamp {
-            cursor: url('https://cdn-icons-png.flaticon.com/512/9814/9814470.png'), auto;
-        }
-        .stamp-animation {
-            animation: stamp-pop 0.3s ease-out;
-        }
-        @keyframes stamp-pop {
-            0% { transform: scale(3); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); }
+        .gradient-text { background: linear-gradient(90deg, #1e40af, #dc2626); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-bg { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; }
+        .stat-card:hover { transform: scale(1.05); transition: 0.3s; }
     </style>
 </head>
-<body class="bg-gray-50 text-slate-900" x-data="{ voted: false }">
+<body class="bg-slate-50 text-slate-900">
 
-    <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-blue-100">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="text-2xl font-black text-blue-900 italic underline decoration-red-500">रूपन्देही-२ बुलेटिन</div>
-            <a href="#vote-section" class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold hover:bg-red-600 transition-all duration-300">अहिले नै समर्थन गर्नुहोस्</a>
+            <div class="text-3xl font-black gradient-text">रूपन्देही-२ सम्बाद</div>
+            <div class="hidden lg:flex gap-10 font-semibold text-slate-600">
+                <a href="#issues" class="hover:text-blue-700 transition">स्थानीय मुद्दा</a>
+                <a href="#comparison" class="hover:text-blue-700 transition">तुलना</a>
+                <a href="#employment" class="hover:text-blue-700 transition">रोजगारी</a>
+            </div>
+            <button class="bg-red-600 text-white px-6 py-2 rounded-full font-bold shadow-xl hover:bg-red-700 transition">परिवर्तनका लागि क्लिक गर्नुहोस्</button>
         </div>
     </nav>
 
-    <section class="gradient-bg text-white py-20 px-6 text-center">
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-6">चुन्न प्रसाद पौडेल</h1>
-        <p class="text-2xl text-blue-200 max-w-3xl mx-auto font-light">
-            ५०००+ रोजगारीदाता, सफल व्यवसायी र रूपन्देहीको भविष्य। गफ गर्नेलाई होइन, काम गर्नेलाई रोजौं।
-        </p>
-    </section>
-
-    <section class="py-16 max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-3xl shadow-xl border-t-8 border-red-500 text-center transform hover:-translate-y-2 transition">
-                <img src="bishnu.jpg" onerror="this.src='https://via.placeholder.com/300x300?text=Bishnu+Poudel'" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-slate-100 shadow-lg">
-                <h3 class="text-2xl font-bold">विष्णु पौडेल</h3>
-                <p class="text-red-600 font-bold">नेकपा एमाले</p>
-                <p class="mt-4 text-slate-500 italic">"३१ वर्षको उपलब्धि: राजधानी बुटवलबाट दाङ पठाएको पुरस्कार!"</p>
-            </div>
-
-            <div class="bg-blue-50 p-8 rounded-3xl shadow-2xl border-t-8 border-blue-600 text-center transform scale-105 z-10">
-                <img src="chunnu.jpg" onerror="this.src='https://via.placeholder.com/300x300?text=Chunnu+Prasad+Poudel'" class="w-56 h-56 rounded-full mx-auto mb-4 object-cover border-4 border-blue-600 shadow-2xl">
-                <h3 class="text-3xl font-black">चुन्न प्रसाद पौडेल</h3>
-                <p class="text-blue-700 font-black text-xl">नेपाली कांग्रेस</p>
-                <div class="mt-4 bg-blue-600 text-white py-2 rounded-lg font-bold">५०००+ रोजगारीदाता</div>
-                <p class="mt-4 text-slate-700">"व्यापारबाट समाजसेवा, आश्वासन होइन लालपुर्जा हाम्रो लक्ष्य।"</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-3xl shadow-xl border-t-8 border-blue-400 text-center transform hover:-translate-y-2 transition">
-                <img src="sulav.jpg" onerror="this.src='https://via.placeholder.com/300x300?text=Sulav+Kharel'" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-slate-100 shadow-lg">
-                <h3 class="text-2xl font-bold">सुलभ खरेल</h3>
-                <p class="text-blue-500 font-bold">रास्वपा</p>
-                <p class="mt-4 text-slate-500 italic">"अदालत जलाउने धम्की दिने, एअरपोर्टबाट झरेका नयाँ गफाडी।"</p>
+    <section class="hero-bg h-[80vh] flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl">
+            <span class="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 inline-block">मिशन २०८४ / २०२६</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                ३१ वर्षसम्म नसुल्झिएको <span class="text-red-500">लालपुर्जा</span> अब कसले दिन्छ?
+            </h1>
+            <p class="text-xl text-slate-200 mb-10">
+                तिनाउ कोरिडोरका विस्थापितलाई गफ होइन, घर चाहियो। विष्णुको आश्वासन र सुलभको 'आगो' भन्दा चुन्नुको 'रोजगारी' प्यारो!
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#comparison" class="bg-white text-slate-900 px-10 py-4 rounded-xl font-black text-lg shadow-2xl hover:bg-blue-50 transition">तथ्य हेर्नुहोस्</a>
+                <a href="#employment" class="bg-transparent border-2 border-white text-white px-10 py-4 rounded-xl font-black text-lg hover:bg-white/10 transition">५०००+ रोजगारीको कथा</a>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-slate-900 text-white">
+    <section id="employment" class="py-16 bg-white -mt-10 mx-6 rounded-3xl shadow-2xl relative z-10 max-w-6xl lg:mx-auto">
+        <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+            <div class="p-8 text-center stat-card">
+                <div class="text-5xl font-black text-blue-700 mb-2">५०००+</div>
+                <div class="text-slate-500 font-bold uppercase tracking-wide">प्रत्यक्ष रोजगारी</div>
+                <p class="mt-4 text-sm text-slate-400 font-medium">चुन्नु पौडेलका उद्योगले धानेको रूपन्देहीको ५ हजार घरधुरीको चुल्हो।</p>
+            </div>
+            <div class="p-8 text-center stat-card">
+                <div class="text-5xl font-black text-green-600 mb-2">०%</div>
+                <div class="text-slate-500 font-bold uppercase tracking-wide">निजी स्वार्थ</div>
+                <p class="mt-4 text-sm text-slate-400 font-medium">सफल व्यवसायी, राजनीतिमा पदका लागि होइन समाजसेवाका लागि आगमन।</p>
+            </div>
+            <div class="p-8 text-center stat-card">
+                <div class="text-5xl font-black text-red-600 mb-2">३१ वर्ष</div>
+                <div class="text-slate-500 font-bold uppercase tracking-wide">रित्तो आश्वासन</div>
+                <p class="mt-4 text-sm text-slate-400 font-medium">विष्णु पौडेलले पटक-पटक झुक्काएको लालपुर्जा र विकासको अवधि।</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black mb-4">उम्मेदवारहरूको वास्तविक अनुहार</h2>
+            <p class="text-slate-500">तपाईँको एक भोटले रूपन्देहीको भविष्य तय गर्छ। विवेकपूर्ण निर्णय लिनुहोस्।</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 opacity-75 grayscale hover:grayscale-0 transition">
+                <img src="https://via.placeholder.com/150/ff0000/ffffff?text=Bishnu" class="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-red-500" alt="Bishnu Poudel">
+                <h3 class="text-2xl font-bold text-center mb-4 italic">विष्णु पौडेल (एमाले)</h3>
+                <ul class="space-y-4 text-slate-600">
+                    <li class="flex gap-2">❌ <span>३१ वर्ष सत्तामा, तर सुकुम्बासीलाई अझै लालपुर्जा छैन।</span></li>
+                    <li class="flex gap-2">❌ <span>तिनाउ कोरिडोरका जनतालाई विस्थापित गर्ने डर मात्र देखाए।</span></li>
+                    <li class="flex gap-2">❌ <span>बुटवलको राजधानी दाङ पठाएर विकासको घाँटी निमोठे।</span></li>
+                </ul>
+            </div>
+
+            <div class="bg-blue-900 text-white rounded-3xl p-8 shadow-[0_20px_50px_rgba(30,64,175,0.3)] border-4 border-blue-400 transform lg:-translate-y-6">
+                <div class="bg-yellow-400 text-blue-900 w-fit px-4 py-1 rounded-full text-xs font-black mx-auto mb-6">जनताको रोजाइ</div>
+                <img src="https://via.placeholder.com/150/0000ff/ffffff?text=Chunnu" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white shadow-xl" alt="Chunnu Poudel">
+                <h3 class="text-3xl font-black text-center mb-4 uppercase tracking-tighter">चुन्नु पौडेल (कांग्रेस)</h3>
+                <ul class="space-y-4 text-blue-100">
+                    <li class="flex gap-2 font-bold italic">✅ <span>५,०००+ युवालाई आफ्नै उद्योगमा रोजगारी दिएर विदेश जानबाट रोके।</span></li>
+                    <li class="flex gap-2">✅ <span>तिनाउ कोरिडोरका जनताको पक्षमा उभिने एउटै नेता।</span></li>
+                    <li class="flex gap-2 italic">✅ <span>व्यापारबाट कमाएको पैसा अब समाजसेवा र लालपुर्जा दिलाउन खर्चिने।</span></li>
+                    <li class="flex gap-2">✅ <span>राजनीतिलाई व्यापार होइन, सेवा बनाउने एजेण्डा।</span></li>
+                </ul>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 opacity-75 grayscale hover:grayscale-0 transition">
+                <img src="https://via.placeholder.com/150/0000aa/ffffff?text=Sulav" class="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-blue-600" alt="Sulav Kharel">
+                <h3 class="text-2xl font-bold text-center mb-4 italic">सुलभ खरेल (रास्वपा)</h3>
+                <ul class="space-y-4 text-slate-600">
+                    <li class="flex gap-2">❌ <span>सर्वोच्च अदालत जलाउने धम्की दिने अराजक मानसिकता।</span></li>
+                    <li class="flex gap-2">❌ <span>रूपन्देहीको भूगोल नबुझी एअरपोर्टबाट सिधै भोट माग्न आएका।</span></li>
+                    <li class="flex gap-2">❌ <span>काम भन्दा बढी फेसबुक लाइभ र गफमा विश्वास।</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="issues" class="bg-slate-900 py-24 text-white">
         <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-4xl font-black text-center mb-16">तुलना गरौं: को कति पानीमा?</h2>
-            <div class="space-y-6">
-                <div class="flex flex-col md:flex-row gap-4 items-center bg-slate-800 p-6 rounded-2xl border-l-4 border-blue-500">
-                    <div class="w-full md:w-1/3 font-bold text-xl text-blue-400 underline italic">तिनाउ कोरिडोर</div>
-                    <div class="w-full md:w-2/3">विष्णुले भोट बैंक बनाए, सुलभले गफ दिए, <span class="text-green-400 font-bold underline">चुन्न प्रसादले विस्थापित हुन नदिने सुरक्षा दिन्छन्।</span></div>
+            <h2 class="text-4xl font-black text-center mb-16 underline decoration-red-600">रूपन्देहीका जलिरहेका मुद्दाहरू</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="p-8 border-l-4 border-blue-500 bg-slate-800 rounded-r-xl">
+                    <h4 class="text-2xl font-bold mb-4">तिनाउ कोरिडोरको समस्या</h4>
+                    <p class="text-slate-400">विष्णु पौडेलले कोरिडोरको नाममा भोट त लिए, तर त्यहाँका हजारौं परिवारलाई 'विस्थापित' हुने डरमा राखे। चुन्नु पौडेलले कोरिडोर बनाउँदा कसैको बास उठ्न नदिने ग्यारेन्टी गरेका छन्।</p>
                 </div>
-                <div class="flex flex-col md:flex-row gap-4 items-center bg-slate-800 p-6 rounded-2xl border-l-4 border-red-500">
-                    <div class="w-full md:w-1/3 font-bold text-xl text-red-400 underline italic">कानुनी मर्यादा</div>
-                    <div class="w-full md:w-2/3 italic">सुलभ खरेलले सर्वोच्च अदालत जलाउने कुरा गर्दा, <span class="text-green-400 font-bold underline text-not-italic">चुन्नुले उद्योग खोलेर देश बनाउने कुरा गर्छन्।</span></div>
-                </div>
-                <div class="flex flex-col md:flex-row gap-4 items-center bg-slate-800 p-6 rounded-2xl border-l-4 border-yellow-500">
-                    <div class="w-full md:w-1/3 font-bold text-xl text-yellow-400 underline italic">लालपुर्जा</div>
-                    <div class="w-full md:w-2/3 italic">विष्णुको ३१ वर्षे कार्यकालमा झुक्क्याइएका सुकुम्बासीलाई <span class="text-green-400 font-bold underline text-not-italic">चुन्नुले अधिकार दिलाउने अठोट गरेका छन्।</span></div>
+                <div class="p-8 border-l-4 border-yellow-500 bg-slate-800 rounded-r-xl">
+                    <h4 class="text-2xl font-bold mb-4">लालपुर्जाको सपना</h4>
+                    <p class="text-slate-400">वर्षौंदेखि जोतभोग गरेका सुकुम्बासी र अव्यवस्थित बसोबासीलाई लालपुर्जा दिने नाममा 'आयोग' मात्र बनाइयो। अब एउटा काम गर्ने मान्छेलाई जिताएर लालपुर्जा हातमा लिने पालो आएको छ।</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="vote-section" class="py-24 bg-white text-center">
-        <h2 class="text-4xl font-black mb-6">तपाईँको समर्थन देखाउनुहोस्</h2>
-        <p class="text-slate-500 mb-10">तलको 'रुख' चिन्हमा क्लिक गरेर स्वस्तिक छाप लगाउनुहोस्!</p>
-        
-        <div class="relative w-64 h-64 mx-auto border-4 border-blue-600 rounded-3xl p-8 cursor-pointer overflow-hidden bg-slate-50 hover:bg-blue-100 transition" @click="voted = true">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Nepali_Congress_Flag.svg/1024px-Nepali_Congress_Flag.svg.png" class="w-full h-full object-contain opacity-40">
-            
-            <template x-if="voted">
-                <div class="absolute inset-0 flex items-center justify-center stamp-animation">
-                    <img src="https://cdn-icons-png.flaticon.com/512/9814/9814470.png" class="w-32 h-32 opacity-80">
-                </div>
-            </template>
+    <section class="py-24 text-center">
+        <h2 class="text-5xl font-black mb-8">भोट कसलाई?</h2>
+        <p class="text-2xl text-slate-600 mb-12">अदालत जलाउनेलाई? कि लालपुर्जा लुकाउनेलाई? <br><strong>या ५००० लाई रोजगारी दिने समाजका सेवकलाई?</strong></p>
+        <div class="bg-blue-600 text-white w-fit mx-auto px-16 py-6 rounded-2xl shadow-2xl animate-bounce font-black text-3xl">
+            रूख चिन्हमा मतदान!
         </div>
-
-        <div x-show="voted" class="mt-8 text-2xl font-black text-blue-700 animate-pulse">
-            जय नेपाल! चुन्न प्रसाद पौडेललाई तपाईँको समर्थन सफल भयो।
-        </div>
-        <button @click="voted = false" x-show="voted" class="mt-4 text-sm text-slate-400 underline">फेरि मतदान गर्नुहोस्</button>
     </section>
 
-    <footer class="py-12 bg-slate-100 border-t text-center">
-        <p class="font-bold text-slate-500 italic">"व्यापारबाट समाजसेवा, आश्वासन होइन लालपुर्जा हाम्रो लक्ष्य!"</p>
-        <p class="text-slate-400 text-xs mt-4 uppercase tracking-widest">२०२६ रूपन्देही-२ जागरण अभियान</p>
+    <footer class="bg-slate-100 py-12 border-t text-center">
+        <p class="text-slate-400 font-medium">यो प्यारोडी वेबसाइट रूपन्देही-२ का सचेत युवाहरूद्वारा निर्माण गरिएको हो।</p>
+        <p class="text-slate-400 text-sm mt-2">© २०२६ | रूपन्देहीको विकास, हाम्रो निकास।</p>
     </footer>
 
 </body>
